@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EA7CA3A51FCBBDEB00364DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CA3A41FCBBDEB00364DFC /* AppDelegate.swift */; };
+		EA7CA3A71FCBBDEB00364DFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CA3A61FCBBDEB00364DFC /* ViewController.swift */; };
+		EA7CA3AA1FCBBDEB00364DFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA7CA3A81FCBBDEB00364DFC /* Main.storyboard */; };
+		EA7CA3AC1FCBBDEB00364DFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA7CA3AB1FCBBDEB00364DFC /* Assets.xcassets */; };
+		EA7CA3AF1FCBBDEB00364DFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA7CA3AD1FCBBDEB00364DFC /* LaunchScreen.storyboard */; };
+		EA7CA3BA1FCBBDEB00364DFC /* RollAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CA3B91FCBBDEB00364DFC /* RollAppTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EA7CA3B61FCBBDEB00364DFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EA7CA3991FCBBDEB00364DFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA7CA3A01FCBBDEB00364DFC;
+			remoteInfo = RollApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EA7CA3A11FCBBDEB00364DFC /* RollApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RollApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA7CA3A41FCBBDEB00364DFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EA7CA3A61FCBBDEB00364DFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EA7CA3A91FCBBDEB00364DFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EA7CA3AB1FCBBDEB00364DFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EA7CA3AE1FCBBDEB00364DFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EA7CA3B01FCBBDEB00364DFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA7CA3B51FCBBDEB00364DFC /* RollAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RollAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA7CA3B91FCBBDEB00364DFC /* RollAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollAppTests.swift; sourceTree = "<group>"; };
+		EA7CA3BB1FCBBDEB00364DFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EA7CA39E1FCBBDEB00364DFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA7CA3B21FCBBDEB00364DFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EA7CA3981FCBBDEB00364DFC = {
+			isa = PBXGroup;
+			children = (
+				EA7CA3A31FCBBDEB00364DFC /* RollApp */,
+				EA7CA3B81FCBBDEB00364DFC /* RollAppTests */,
+				EA7CA3A21FCBBDEB00364DFC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EA7CA3A21FCBBDEB00364DFC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EA7CA3A11FCBBDEB00364DFC /* RollApp.app */,
+				EA7CA3B51FCBBDEB00364DFC /* RollAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EA7CA3A31FCBBDEB00364DFC /* RollApp */ = {
+			isa = PBXGroup;
+			children = (
+				EA7CA3A41FCBBDEB00364DFC /* AppDelegate.swift */,
+				EA7CA3A61FCBBDEB00364DFC /* ViewController.swift */,
+				EA7CA3A81FCBBDEB00364DFC /* Main.storyboard */,
+				EA7CA3AB1FCBBDEB00364DFC /* Assets.xcassets */,
+				EA7CA3AD1FCBBDEB00364DFC /* LaunchScreen.storyboard */,
+				EA7CA3B01FCBBDEB00364DFC /* Info.plist */,
+			);
+			path = RollApp;
+			sourceTree = "<group>";
+		};
+		EA7CA3B81FCBBDEB00364DFC /* RollAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				EA7CA3B91FCBBDEB00364DFC /* RollAppTests.swift */,
+				EA7CA3BB1FCBBDEB00364DFC /* Info.plist */,
+			);
+			path = RollAppTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EA7CA3A01FCBBDEB00364DFC /* RollApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA7CA3BE1FCBBDEB00364DFC /* Build configuration list for PBXNativeTarget "RollApp" */;
+			buildPhases = (
+				EA7CA39D1FCBBDEB00364DFC /* Sources */,
+				EA7CA39E1FCBBDEB00364DFC /* Frameworks */,
+				EA7CA39F1FCBBDEB00364DFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RollApp;
+			productName = RollApp;
+			productReference = EA7CA3A11FCBBDEB00364DFC /* RollApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EA7CA3B41FCBBDEB00364DFC /* RollAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA7CA3C11FCBBDEB00364DFC /* Build configuration list for PBXNativeTarget "RollAppTests" */;
+			buildPhases = (
+				EA7CA3B11FCBBDEB00364DFC /* Sources */,
+				EA7CA3B21FCBBDEB00364DFC /* Frameworks */,
+				EA7CA3B31FCBBDEB00364DFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA7CA3B71FCBBDEB00364DFC /* PBXTargetDependency */,
+			);
+			name = RollAppTests;
+			productName = RollAppTests;
+			productReference = EA7CA3B51FCBBDEB00364DFC /* RollAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EA7CA3991FCBBDEB00364DFC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = Enabled;
+				TargetAttributes = {
+					EA7CA3A01FCBBDEB00364DFC = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					EA7CA3B41FCBBDEB00364DFC = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EA7CA3A01FCBBDEB00364DFC;
+					};
+				};
+			};
+			buildConfigurationList = EA7CA39C1FCBBDEB00364DFC /* Build configuration list for PBXProject "RollApp" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EA7CA3981FCBBDEB00364DFC;
+			productRefGroup = EA7CA3A21FCBBDEB00364DFC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EA7CA3A01FCBBDEB00364DFC /* RollApp */,
+				EA7CA3B41FCBBDEB00364DFC /* RollAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EA7CA39F1FCBBDEB00364DFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA7CA3AF1FCBBDEB00364DFC /* LaunchScreen.storyboard in Resources */,
+				EA7CA3AC1FCBBDEB00364DFC /* Assets.xcassets in Resources */,
+				EA7CA3AA1FCBBDEB00364DFC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA7CA3B31FCBBDEB00364DFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EA7CA39D1FCBBDEB00364DFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA7CA3A71FCBBDEB00364DFC /* ViewController.swift in Sources */,
+				EA7CA3A51FCBBDEB00364DFC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA7CA3B11FCBBDEB00364DFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA7CA3BA1FCBBDEB00364DFC /* RollAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EA7CA3B71FCBBDEB00364DFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EA7CA3A01FCBBDEB00364DFC /* RollApp */;
+			targetProxy = EA7CA3B61FCBBDEB00364DFC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EA7CA3A81FCBBDEB00364DFC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA7CA3A91FCBBDEB00364DFC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EA7CA3AD1FCBBDEB00364DFC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA7CA3AE1FCBBDEB00364DFC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EA7CA3BC1FCBBDEB00364DFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EA7CA3BD1FCBBDEB00364DFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EA7CA3BF1FCBBDEB00364DFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RollApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.RollApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EA7CA3C01FCBBDEB00364DFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RollApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.RollApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EA7CA3C21FCBBDEB00364DFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RollAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.RollAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RollApp.app/RollApp";
+			};
+			name = Debug;
+		};
+		EA7CA3C31FCBBDEB00364DFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RollAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.RollAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RollApp.app/RollApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EA7CA39C1FCBBDEB00364DFC /* Build configuration list for PBXProject "RollApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA7CA3BC1FCBBDEB00364DFC /* Debug */,
+				EA7CA3BD1FCBBDEB00364DFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA7CA3BE1FCBBDEB00364DFC /* Build configuration list for PBXNativeTarget "RollApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA7CA3BF1FCBBDEB00364DFC /* Debug */,
+				EA7CA3C01FCBBDEB00364DFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA7CA3C11FCBBDEB00364DFC /* Build configuration list for PBXNativeTarget "RollAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA7CA3C21FCBBDEB00364DFC /* Debug */,
+				EA7CA3C31FCBBDEB00364DFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EA7CA3991FCBBDEB00364DFC /* Project object */;
+}
