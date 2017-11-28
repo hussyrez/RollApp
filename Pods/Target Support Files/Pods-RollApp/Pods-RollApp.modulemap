@@ -1,0 +1,6 @@
+framework module Pods_RollApp {
+  umbrella header "Pods-RollApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
