@@ -8,5 +8,8 @@ target 'RollApp' do
   # Pods for RollApp
   pod 'SnapKit', '~> 4.0.0'
   pod 'Stripe'
+  pod 'Alamofire'
+  pod 'Firebase/Core'
+  pod 'Firebase/RemoteConfig'
 
 end

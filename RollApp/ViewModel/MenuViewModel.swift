@@ -7,18 +7,40 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseRemoteConfig
 
 class MenuViewModel: NSObject {
     
     private var menu: Menu = []
     
-    init(menuUrl: URL) {
-        
-        //Download a JSON file
-        
-        //Parse it into the Menu (really [MenuItem])
+    var didLoadMenu: ()->() = {}
+    
+    var numberOfMenuItems: Int {
+        return 10
+        //return menu.count
     }
     
-    let title = "Food"
+    func nameForMenuItem(at indexPath: IndexPath) -> String {
+        
+        //let item = menu[indexPath.row]
+        //return item.name
+        
+        return "Get the name here!"
+    }
+    
+    init(menuUrl: URL) {
+        //OPTION1:
+            //Download a JSON file
+            //Parse it into the Menu (really [MenuItem])
+        
+        //OPTION2:
+            //use cloud storage for images
+            //use initial values for FireBase Remote config?
+        
+        
+    }
+    
+    let title = "Menu"
     
 }

@@ -47,6 +47,16 @@ class StatefulTabController<T : AppState>: UITabBarController, StatefulView
 {
     typealias State = T
     
+    init(state: T)
+    {
+        _state = state
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     /*
      This dummy variable is here because the app crashes on iPhone 4S and 5
      
@@ -66,22 +76,27 @@ class StatefulTabController<T : AppState>: UITabBarController, StatefulView
     
     var stateToView: (T) -> UIViewController = { $0.viewController() }
     
+    //get current _state
     var state: T {
         get {
             return _state
         }
     }
     
+    //get state on given index
     var selectedState: T {
         get {
             return states[selectedIndex]
         }
     }
     
+    //set _states to [T] where T -> AppState|RollAppState
+    //also returns the array _states
     var states: [T] {
         set {
             _states = newValue
             
+            //??what
             viewControllers = _states.map { self.stateToView($0) }
         }
         
@@ -98,14 +113,4 @@ class StatefulTabController<T : AppState>: UITabBarController, StatefulView
         }
     }
     
-    init(state: T)
-    {
-        _state = state
-        
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }

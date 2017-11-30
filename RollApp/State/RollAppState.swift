@@ -18,28 +18,34 @@ indirect enum RollAppState: AppState {
     case menuAndBag(menuUrl: URL)
     case navigatable(state: State)
     case menu(menuUrl: URL)
-    case bag
+    case bag(order: Order)
     case checkout
     case receipt
     
     func viewController() -> UIViewController {
         switch self{
-        case .menuAndBag(let url):
+        case .menuAndBag(let url):  //can use the URL inside the body
             let controller = StatefulTabController<RollAppState>(state: self);
-            controller.states = [.navigatable(state: .menu(menuUrl: url)), .navigatable(state: .bag)]
+            controller.states = [.navigatable(state: .menu(menuUrl: url)),
+                                 .navigatable(state: .bag(order: Order(items: [])))]; //empty order 4 now
             return controller
+            
         case .navigatable(let state):
             let navigation = UINavigationController(rootViewController: state.viewController())
             return navigation
+            
         case .menu(let url):
             //linked
             let menuController = MenuViewController(state: self, viewModel: MenuViewModel(menuUrl: url))
             return menuController
-        case .bag:
-            let bagController = BagViewController()
+            
+        case .bag(let order):
+            let bagController = BagViewController(state: self, viewModel: BagViewModel(order: order))
             return bagController
+            
         case .checkout:
             return UIViewController()
+            
         case .receipt:
             return UIViewController()
         }
