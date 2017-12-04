@@ -31,6 +31,6 @@ class BagViewController: StatefulViewController<RollAppState>
         super.viewDidLoad()
                 
         let titleView = UILabel()
-        titleView.text = "Bag"
+        titleView.text = "Bag"    
     }
 }

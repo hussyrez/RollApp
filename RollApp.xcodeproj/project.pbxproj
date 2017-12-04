@@ -10,7 +10,6 @@
 		5518BC49642CEC445173D810 /* Pods_RollApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24769E133F0DFF04F9DD7809 /* Pods_RollApp.framework */; };
 		EA7CA3A51FCBBDEB00364DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CA3A41FCBBDEB00364DFC /* AppDelegate.swift */; };
 		EA7CA3AC1FCBBDEB00364DFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA7CA3AB1FCBBDEB00364DFC /* Assets.xcassets */; };
-		EA7CA3BA1FCBBDEB00364DFC /* RollAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CA3B91FCBBDEB00364DFC /* RollAppTests.swift */; };
 		EAC1FDC71FCBE3460035F674 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1FDC61FCBE3460035F674 /* AppState.swift */; };
 		EAC1FDC91FCBE35E0035F674 /* RollAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1FDC81FCBE35E0035F674 /* RollAppState.swift */; };
 		EAC1FDCB1FCBE4C50035F674 /* StatefulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1FDCA1FCBE4C50035F674 /* StatefulView.swift */; };
@@ -20,17 +19,9 @@
 		EAC1FDDD1FCD37130035F674 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1FDDC1FCD37130035F674 /* MenuViewModel.swift */; };
 		EAC1FDDF1FCE62480035F674 /* BagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1FDDE1FCE62480035F674 /* BagViewModel.swift */; };
 		EAC1FDE11FCF97820035F674 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC1FDE01FCF97820035F674 /* GoogleService-Info.plist */; };
+		EAC1FDEF1FD4FF440035F674 /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1FDEE1FD4FF440035F674 /* RemoteConfig.swift */; };
+		EAC1FDF11FD507FF0035F674 /* OrderStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1FDF01FD507FF0035F674 /* OrderStorage.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		EA7CA3B61FCBBDEB00364DFC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EA7CA3991FCBBDEB00364DFC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EA7CA3A01FCBBDEB00364DFC;
-			remoteInfo = RollApp;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		11D52745F5C6B94C9BCB6F3A /* Pods_RollApp_RollAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RollApp_RollAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,7 +35,6 @@
 		EA7CA3A41FCBBDEB00364DFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA7CA3AB1FCBBDEB00364DFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA7CA3B01FCBBDEB00364DFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EA7CA3B51FCBBDEB00364DFC /* RollAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RollAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA7CA3B91FCBBDEB00364DFC /* RollAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollAppTests.swift; sourceTree = "<group>"; };
 		EA7CA3BB1FCBBDEB00364DFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAC1FDC61FCBE3460035F674 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -56,6 +46,8 @@
 		EAC1FDDC1FCD37130035F674 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		EAC1FDDE1FCE62480035F674 /* BagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagViewModel.swift; sourceTree = "<group>"; };
 		EAC1FDE01FCF97820035F674 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EAC1FDEE1FD4FF440035F674 /* RemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RemoteConfig.swift; path = RollApp/Data/RemoteConfig.swift; sourceTree = SOURCE_ROOT; };
+		EAC1FDF01FD507FF0035F674 /* OrderStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderStorage.swift; path = RollApp/Data/OrderStorage.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,13 +56,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5518BC49642CEC445173D810 /* Pods_RollApp.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EA7CA3B21FCBBDEB00364DFC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				EA7CA3A11FCBBDEB00364DFC /* RollApp.app */,
-				EA7CA3B51FCBBDEB00364DFC /* RollAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,6 +166,8 @@
 		EAC1FDED1FCFDB5A0035F674 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				EAC1FDEE1FD4FF440035F674 /* RemoteConfig.swift */,
+				EAC1FDF01FD507FF0035F674 /* OrderStorage.swift */,
 			);
 			name = Data;
 			path = "New Group";
@@ -210,24 +196,6 @@
 			productReference = EA7CA3A11FCBBDEB00364DFC /* RollApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EA7CA3B41FCBBDEB00364DFC /* RollAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EA7CA3C11FCBBDEB00364DFC /* Build configuration list for PBXNativeTarget "RollAppTests" */;
-			buildPhases = (
-				EA7CA3B11FCBBDEB00364DFC /* Sources */,
-				EA7CA3B21FCBBDEB00364DFC /* Frameworks */,
-				EA7CA3B31FCBBDEB00364DFC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EA7CA3B71FCBBDEB00364DFC /* PBXTargetDependency */,
-			);
-			name = RollAppTests;
-			productName = RollAppTests;
-			productReference = EA7CA3B51FCBBDEB00364DFC /* RollAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -241,11 +209,6 @@
 					EA7CA3A01FCBBDEB00364DFC = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
-					};
-					EA7CA3B41FCBBDEB00364DFC = {
-						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = EA7CA3A01FCBBDEB00364DFC;
 					};
 				};
 			};
@@ -263,7 +226,6 @@
 			projectRoot = "";
 			targets = (
 				EA7CA3A01FCBBDEB00364DFC /* RollApp */,
-				EA7CA3B41FCBBDEB00364DFC /* RollAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -275,13 +237,6 @@
 			files = (
 				EA7CA3AC1FCBBDEB00364DFC /* Assets.xcassets in Resources */,
 				EAC1FDE11FCF97820035F674 /* GoogleService-Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EA7CA3B31FCBBDEB00364DFC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,10 +312,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAC1FDC91FCBE35E0035F674 /* RollAppState.swift in Sources */,
+				EAC1FDEF1FD4FF440035F674 /* RemoteConfig.swift in Sources */,
 				EAC1FDC71FCBE3460035F674 /* AppState.swift in Sources */,
 				EAC1FDCB1FCBE4C50035F674 /* StatefulView.swift in Sources */,
 				EAC1FDDF1FCE62480035F674 /* BagViewModel.swift in Sources */,
 				EAC1FDDD1FCD37130035F674 /* MenuViewModel.swift in Sources */,
+				EAC1FDF11FD507FF0035F674 /* OrderStorage.swift in Sources */,
 				EAC1FDDB1FCD31B30035F674 /* RollModel.swift in Sources */,
 				EAC1FDD71FCD1F040035F674 /* BagViewController.swift in Sources */,
 				EAC1FDD51FCD1EF30035F674 /* MenuViewController.swift in Sources */,
@@ -368,23 +325,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EA7CA3B11FCBBDEB00364DFC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EA7CA3BA1FCBBDEB00364DFC /* RollAppTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		EA7CA3B71FCBBDEB00364DFC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EA7CA3A01FCBBDEB00364DFC /* RollApp */;
-			targetProxy = EA7CA3B61FCBBDEB00364DFC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EA7CA3BC1FCBBDEB00364DFC /* Debug */ = {
@@ -526,36 +467,6 @@
 			};
 			name = Release;
 		};
-		EA7CA3C21FCBBDEB00364DFC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = RollAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.RollAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RollApp.app/RollApp";
-			};
-			name = Debug;
-		};
-		EA7CA3C31FCBBDEB00364DFC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = RollAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.RollAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RollApp.app/RollApp";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -573,15 +484,6 @@
 			buildConfigurations = (
 				EA7CA3BF1FCBBDEB00364DFC /* Debug */,
 				EA7CA3C01FCBBDEB00364DFC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EA7CA3C11FCBBDEB00364DFC /* Build configuration list for PBXNativeTarget "RollAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EA7CA3C21FCBBDEB00364DFC /* Debug */,
-				EA7CA3C31FCBBDEB00364DFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

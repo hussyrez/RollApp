@@ -10,8 +10,9 @@ import UIKit
 import SnapKit
 import Firebase
 
-class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataSource
+class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataSource, UITableViewDelegate
 {
+    
     private let viewModel: MenuViewModel
     
     init(state: State, viewModel: MenuViewModel) {
@@ -27,37 +28,32 @@ class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("\n\n\n")
+        print("CALLED CALLED CALLED")
+        print("\n\n\n")
+        
         title = viewModel.title
         
         let menuTable = UITableView()
         view.addSubview(menuTable)
         menuTable.snp.makeConstraints {
             make in
-
+            
             make.edges.equalTo(view)
         }
-
+        
         menuTable.dataSource = self
         menuTable.register(UITableViewCell.self, forCellReuseIdentifier: "MenuCell")
         
-//        let redView = UIView()
-//        redView.backgroundColor = .red
-//        view.addSubview(redView)
-//        redView.snp.makeConstraints {
-//            make in
-//
-//            make.center.equalTo(view.snp.center)
-//            make.width.height.equalTo(100)
-//        }
-//        redView.layer.cornerRadius = 10.0
-
-        
-//        viewModel.didLoadMenu = {
-//            menuTable.reloadData()
-//        }
-        setupRemoteConfigDefaults()
-        updateValues()
-        fetchRemoteConfig()
+        viewModel.didLoadMenu = {
+            menuTable.reloadData()
+        }
+    }
+    
+    //MARK: - Table View Delegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.selectedItemAtIndex(indexPath)
     }
     
     //MARK: - Table View Data Source
@@ -73,52 +69,9 @@ class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataS
         
         return cell
     }
-    
-    func setupRemoteConfigDefaults(){
-        let defaultValue =
-        [
-            "update" :
-                """
-                [
-                    {
-                    "name": "Mashed Potato Roll",
-                    "price":  36
-                    },
-                    {
-                    "name" : "Beef Roll",
-                    "price" : 47
-                    }
-                ]
-                """ as NSObject
-        ]
 
-//        let data = defaultValue[0]["update"].data(using: .utf8)!
-//        do{
-//            let myStruct = try JSONDecoder().decode([jsonItems].self, from: data) // Decoding our data
-//        }catch{
-//
-//        }
-        RemoteConfig.remoteConfig().setDefaults(defaultValue)
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.viewAppeared()
     }
-    func fetchRemoteConfig(){
-        let debugSettings = RemoteConfigSettings(developerModeEnabled: true)
-        RemoteConfig.remoteConfig().configSettings = debugSettings!
-        //NOTE: throttle in deployment by keeping it 0!! change it later
-        RemoteConfig.remoteConfig().fetch(withExpirationDuration: 0){ [unowned self] (status, error) in
-            guard error == nil else{
-                print("FAILED connection!")
-                return
-            }
-            print("SUCCESSFULL connection!")
-            RemoteConfig.remoteConfig().activateFetched()
-            self.updateValues()
-        }
-
-    }
-    
-    func updateValues(){
-    }
-
-    
 }
 

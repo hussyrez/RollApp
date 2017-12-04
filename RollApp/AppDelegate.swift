@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         
+        //Happens once when the app loads
+        setupRemoteConfigDefaults()
+        
         return true
     }
 

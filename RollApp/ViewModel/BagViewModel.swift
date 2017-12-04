@@ -19,6 +19,13 @@ class BagViewModel: NSObject {
         self.order = order
 
         //super.init()
+        
+        NotificationCenter.default.addObserver(forName: OrderStorage.orderUpdatedNotification, object: nil, queue: OperationQueue.main) {
+            _ in
+         
+            //Write code to notify the view that the bag has been updated
+        }
     }
+    
     
 }

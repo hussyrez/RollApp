@@ -15,18 +15,18 @@ indirect enum RollAppState: AppState {
     typealias State = RollAppState
     
     //Rolls States
-    case menuAndBag(menuUrl: URL)
+    case menuAndBag
     case navigatable(state: State)
-    case menu(menuUrl: URL)
+    case menu
     case bag(order: Order)
     case checkout
     case receipt
     
     func viewController() -> UIViewController {
         switch self{
-        case .menuAndBag(let url):  //can use the URL inside the body
+        case .menuAndBag:
             let controller = StatefulTabController<RollAppState>(state: self);
-            controller.states = [.navigatable(state: .menu(menuUrl: url)),
+            controller.states = [.navigatable(state: .menu),
                                  .navigatable(state: .bag(order: Order(items: [])))]; //empty order 4 now
             return controller
             
@@ -34,9 +34,9 @@ indirect enum RollAppState: AppState {
             let navigation = UINavigationController(rootViewController: state.viewController())
             return navigation
             
-        case .menu(let url):
+        case .menu:
             //linked
-            let menuController = MenuViewController(state: self, viewModel: MenuViewModel(menuUrl: url))
+            let menuController = MenuViewController(state: self, viewModel: MenuViewModel())
             return menuController
             
         case .bag(let order):
@@ -60,6 +60,6 @@ indirect enum RollAppState: AppState {
     
     //State -> type alias declared above
     static func initialApplicationState() -> State {
-        return .menuAndBag(menuUrl: URL(string: "https://google.com")!)
+        return .menuAndBag
     }
 }
