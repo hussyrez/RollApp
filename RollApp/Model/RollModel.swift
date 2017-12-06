@@ -9,33 +9,38 @@
 import Foundation
 
 struct LineItem {
-    let quantity: Int
+    var quantity: Int
     let item: MenuItem
 }
 
 struct Order
 {
-    let items: [LineItem]
+    var items: [LineItem]
 }
 
+var c = -1
 extension Order {
-    private func lineItemForMenuItem(_ item: MenuItem) -> LineItem? {
-        return items.first {
-            lineItem -> Bool in
-
-            return lineItem.item == item
+    private func lineItemForMenuItem(_ item: MenuItem) -> Int? {
+        c = 0;
+        for i in items{
+            if i.item == item{
+                return c
+            }
+            c = c+1
         }
+        c = -1
+        return c
     }
     
     func orderByAddingItem(_ item: MenuItem) -> Order {
         var newItems = items
-        
-        if let existingLineItem = lineItemForMenuItem(item) {
-            newItems.append(LineItem(quantity: existingLineItem.quantity + 1, item: item))
+        var temp = lineItemForMenuItem(item)
+        if temp != -1 {
+            newItems.append(LineItem(quantity: items[c].quantity + 1, item: item))
+            newItems.remove(at: c)
         } else {
             newItems.append(LineItem(quantity: 1, item: item))
         }
-        
         return Order(items: newItems)
     }
 }
