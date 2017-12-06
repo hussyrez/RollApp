@@ -17,7 +17,6 @@ class BagViewModel: NSObject {
     init(order: Order) {
         //passed empty order initially from RollAppState
         self.order = order
-
         //super.init()
         
         NotificationCenter.default.addObserver(forName: OrderStorage.orderUpdatedNotification, object: nil, queue: OperationQueue.main) {

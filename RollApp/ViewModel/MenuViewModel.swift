@@ -55,7 +55,7 @@ class MenuViewModel: NSObject {
         counter += 1
         let updatedOrder = currentOrder.orderByAddingItem(item)
         for i in updatedOrder.items{
-            print("\n\n\n",i,"\n\n\n")
+            print("\n\n",i,"\n\n")
         }
         
         OrderStorage.shared.currentOrder = updatedOrder
