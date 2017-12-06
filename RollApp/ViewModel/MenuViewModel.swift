@@ -15,6 +15,7 @@ class MenuViewModel: NSObject {
     var didLoadMenu: ()->() = {}
     
     var menu: [MenuItem] = []
+    
     var numberOfMenuItems: Int {
         return menu.count
     }
@@ -37,28 +38,56 @@ class MenuViewModel: NSObject {
             self?.updateMenuFromRemoteConfig()
         }
     }
-    
+    var counter: Int = 0
     func selectedItemAtIndex(_ indexPath: IndexPath) {
-        //TODO: Add to bag
+        let currentOrder = OrderStorage.shared.currentOrder
         
+        var item = menu[indexPath.row]
+        if(counter % 2 == 0) {
+            let m = MenuAddition(name: "new", price: 3.5)
+            item.additions.append(m)
+        }
+        else{
+            let m = MenuAddition(name: "old", price: 2.5)
+            item.additions.append(m)
+        }
         
+        counter += 1
+        let updatedOrder = currentOrder.orderByAddingItem(item)
+        for i in updatedOrder.items{
+            print("\n\n\n",i,"\n\n\n")
+        }
+        
+        OrderStorage.shared.currentOrder = updatedOrder
+        let encoder = JSONEncoder()
+        let str = try! encoder.encode(updatedOrder.items)
+        print(String(bytes: str, encoding: .utf8) ?? "")
+//        let item = menu[indexPath.row]
+//        let lineItem = LineItem(quantity: 1, item: item)
+////        let item = try! JSONEncoder().encode(menu[indexPath.row])
+////        print(String(bytes: item, encoding: .utf8) ?? "")
+//        OrderStorage.shared.currentOrder = Order(items: [lineItem])
+//        print(OrderStorage().currentOrder)
     }
-    
+
     private func updateMenuFromRemoteConfig() {
         //grab values from remote config
-        //?? to check if it exists, otherwise empty string as default
         let jsonString = RemoteConfig.remoteConfig().configValue(forKey: "update").stringValue ?? ""
-        //        parse json and update values
+        
+        //parse json and update values
         let data = jsonString.data(using: .utf8)!
         do {
             //list of json objects
             let menuItems = try JSONDecoder().decode([MenuItem].self, from: data) // Decoding our data
-            
+//            print(menuItems)
+//            let encoder = JSONEncoder();
+//            encoder.outputFormatting = .prettyPrinted
+//            let menuItems2 = try! encoder.encode(menuItems)
+//            print(String(bytes: menuItems2, encoding: .utf8) ?? "")
             menu = menuItems
             
-            //create a list of menu items from json and update viewmodel
-            
             didLoadMenu()
+            
         } catch {
             print("Json parsing failed . . .")
         }

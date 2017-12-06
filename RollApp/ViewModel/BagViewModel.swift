@@ -22,7 +22,7 @@ class BagViewModel: NSObject {
         
         NotificationCenter.default.addObserver(forName: OrderStorage.orderUpdatedNotification, object: nil, queue: OperationQueue.main) {
             _ in
-         
+            print("Observer invoked")
             //Write code to notify the view that the bag has been updated
         }
     }

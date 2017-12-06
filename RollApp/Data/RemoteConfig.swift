@@ -18,12 +18,12 @@ func setupRemoteConfigDefaults() {
                     {
                     "name" : "Potato Roll",
                     "type" : "vegan",
-                    "price" :  36
+                    "price" :  5
                     },
                     {
                     "name" : "Beef Roll",
                     "type" : "non-vegan",
-                    "price" : 47
+                    "price" : 7
                     }
                 ]
                 """ as NSObject

@@ -14,6 +14,7 @@ class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataS
 {
     
     private let viewModel: MenuViewModel
+//    private let bagViewController: BagViewController
     
     init(state: State, viewModel: MenuViewModel) {
         self.viewModel = viewModel
@@ -28,10 +29,6 @@ class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("\n\n\n")
-        print("CALLED CALLED CALLED")
-        print("\n\n\n")
-        
         title = viewModel.title
         
         let menuTable = UITableView()
@@ -43,6 +40,7 @@ class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataS
         }
         
         menuTable.dataSource = self
+        menuTable.delegate = self
         menuTable.register(UITableViewCell.self, forCellReuseIdentifier: "MenuCell")
         
         viewModel.didLoadMenu = {
@@ -66,6 +64,7 @@ class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
         
         cell.textLabel?.text = viewModel.nameForMenuItem(at: indexPath)
+        cell.backgroundColor = UIColor.brown
         
         return cell
     }
