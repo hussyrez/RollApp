@@ -41,33 +41,34 @@ class MenuViewModel: NSObject {
     var counter: Int = 0
     func selectedItemAtIndex(_ indexPath: IndexPath) {
         let currentOrder = OrderStorage.shared.currentOrder
-        
         var item = menu[indexPath.row]
+        
         if(counter % 2 == 0) {
             let m = MenuAddition(name: "new", price: 3.5)
+            let n = MenuAddition(name: "removal new", price: Double(counter))
             item.additions.append(m)
+            item.removals.append(n)
         }
         else{
             let m = MenuAddition(name: "old", price: 2.5)
+            let n = MenuAddition(name: "removal new", price: Double(counter))
             item.additions.append(m)
+            item.removals.append(n)
         }
         
         counter += 1
         let updatedOrder = currentOrder.orderByAddingItem(item)
-        for i in updatedOrder.items{
-            print("\n\n",i,"\n\n")
-        }
+//        for i in updatedOrder.items{
+//            print("\n\n",i,"\n\n")
+//        }
         
         OrderStorage.shared.currentOrder = updatedOrder
         let encoder = JSONEncoder()
-        let str = try! encoder.encode(updatedOrder.items)
-        print(String(bytes: str, encoding: .utf8) ?? "")
-//        let item = menu[indexPath.row]
-//        let lineItem = LineItem(quantity: 1, item: item)
-////        let item = try! JSONEncoder().encode(menu[indexPath.row])
-////        print(String(bytes: item, encoding: .utf8) ?? "")
-//        OrderStorage.shared.currentOrder = Order(items: [lineItem])
-//        print(OrderStorage().currentOrder)
+        encoder.outputFormatting = .prettyPrinted
+        let str = try! encoder.encode(updatedOrder)
+//        print(String(bytes: str, encoding: .utf8) ?? "")
+//        print("\n\n",updatedOrder,"\n\n")
+        OrderStorage()
     }
 
     private func updateMenuFromRemoteConfig() {

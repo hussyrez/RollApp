@@ -57,19 +57,6 @@ class StatefulTabController<T : AppState>: UITabBarController, StatefulView
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    /*
-     This dummy variable is here because the app crashes on iPhone 4S and 5
-     
-     My wild guess is that the Swift compiler incorrectly generates the memory
-     layout for this class and UIKit attempts to send the message `layoutGuides`
-     to the `_states` variable, assuming it to be the `view` member. Results in
-     an exception.
-     
-     Maybe the cause is that a Swift subclass of an Obj-C class with an
-     initial generic member incorrectly generates the storage for this
-     class on certain CPU architectures?
-     */
-    private var dummyData = "This var prevents a crash on iPhone 5 and earlier"
     
     private let _state: T
     private var _states: [T] = []

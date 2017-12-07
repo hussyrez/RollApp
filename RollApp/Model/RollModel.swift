@@ -34,10 +34,10 @@ extension Order {
     
     func orderByAddingItem(_ item: MenuItem) -> Order {
         var newItems = items
-        var temp = lineItemForMenuItem(item)
+        let temp = lineItemForMenuItem(item)
         if temp != -1 {
             newItems.append(LineItem(quantity: items[c].quantity + 1, item: item))
-            newItems.remove(at: c)
+            newItems.remove(at: temp!)
         } else {
             newItems.append(LineItem(quantity: 1, item: item))
         }
@@ -56,12 +56,12 @@ struct MenuItem
     var additions: [MenuAddition]
     var removals: [MenuAddition]
     
-    init(name: String, type: String, price: Double) { // default struct initializer
+    init(name: String, type: String, price: Double, additions: [MenuAddition]) { // default struct initializer
         self.name = name
         self.type = type
         self.price = price
         
-        self.additions = []
+        self.additions = additions
         self.removals = []
     }
     
@@ -69,12 +69,6 @@ struct MenuItem
 
 extension MenuItem: Equatable {
     static func ==(lhs: MenuItem, rhs: MenuItem) -> Bool {
-//        if lhs.additions.count != rhs.additions.count{
-//            return false
-//        }
-//        else{
-//
-//        }
         
         let additions = lhs.additions.map{ (a: MenuAddition) -> Bool in
             let temp =  rhs.additions.map{ (b: MenuAddition) -> Bool in
@@ -85,20 +79,58 @@ extension MenuItem: Equatable {
             }
             return false
         }
-        print(additions)
+        
+        let removals = lhs.removals.map{ (a: MenuAddition) -> Bool in
+            let temp =  rhs.removals.map{ (b: MenuAddition) -> Bool in
+                return a==b
+            }
+            if temp.contains(true){
+                return true
+            }
+            return false
+        }
+        
         return lhs.name == rhs.name && lhs.price == rhs.price && lhs.type == rhs.type && !additions.contains(false)
+            && !removals.contains(false);
     }
 }
 
 struct MenuAddition {
     let name: String
     let price: Double
+    
+    init(name: String, price: Double){
+        self.name = name
+        self.price = price
+    }
 }
 
 extension MenuAddition: Equatable {
 
     static func ==(lhs: MenuAddition, rhs: MenuAddition) -> Bool {
         return lhs.name == rhs.name && lhs.price == rhs.price
+    }
+}
+
+extension MenuAddition: Codable{
+    enum Keys: String, CodingKey {
+        case name = "name"
+        case price = "price"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: Keys.self)
+        let name: String = try container.decode(String.self, forKey: .name)
+        let price: Double = try container.decode(Double.self, forKey: .price)
+        
+        self.init(name: name, price: price)
+    }
+    
+    //encode to json object
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: Keys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(price, forKey: .price)
     }
 }
 
@@ -154,6 +186,7 @@ extension MenuItem: Codable {
         case name = "name"
         case type = "type"
         case price = "price"
+        case additions = "additions"
     }
 
     //if unable to handle automatic decoding
@@ -162,8 +195,9 @@ extension MenuItem: Codable {
         let name: String = try container.decode(String.self, forKey: .name) // extracting the data
         let type: String = try container.decode(String.self, forKey: .type)
         let price: Double = try container.decode(Double.self, forKey: .price)
+        let additions: [MenuAddition] = try container.decode([MenuAddition].self, forKey: .additions)
 
-        self.init(name: name, type: type, price: price) // initializing our struct
+        self.init(name: name, type: type, price: price, additions: additions) // initializing our struct
     }
     
     //encode to json object

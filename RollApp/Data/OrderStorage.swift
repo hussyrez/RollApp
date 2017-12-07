@@ -25,14 +25,16 @@ class OrderStorage {
             
             //Write the new order to disk
             OrderStorage.writeOrder(currentOrder, path: OrderStorage.defaultOrderLocation)
-            print("HMMM")
         }
     }
     
     private class func writeOrder(_ order: Order, path: String) {
         //TODO: Write order to path
+        print("\n\n",order,"\n\n")
         let fileUrl = URL(fileURLWithPath: path)
-        let tempOrder = try! JSONEncoder().encode(order)
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        let tempOrder = try! encoder.encode(order)
         let temp2 = String(bytes: tempOrder, encoding: .utf8) ?? ""
 //        print(temp2)
         try! temp2.write(to: fileUrl, atomically: true, encoding: .utf8)
@@ -40,10 +42,15 @@ class OrderStorage {
     
     private class func readOrder(_ path: String) -> Order {
         //TODO: Load the order from file at path and return
-//        let fileUrl = URL(fileURLWithPath: path)
-//        let text = try! String(contentsOf: fileUrl, encoding: .utf8)
+        let fileUrl = URL(fileURLWithPath: path)
+        let text = try! String(contentsOf: fileUrl, encoding: .utf8)
 //        print(text)
-        print("reading every time ")
+        
+        let deco = JSONDecoder()
+        let da = text.data(using: .utf8)
+        let newOrder = try! deco.decode(Order.self, from: da!)
+//        print("\n\n",newOrder,"\n\n")
+        
         return Order(items: [])
     }
  
