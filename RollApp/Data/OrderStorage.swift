@@ -30,7 +30,7 @@ class OrderStorage {
     
     private class func writeOrder(_ order: Order, path: String) {
         //TODO: Write order to path
-        print("\n\n",order,"\n\n")
+//        print("\nWrite Function After Update: \n",order,"\n\n")
         let fileUrl = URL(fileURLWithPath: path)
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
@@ -44,12 +44,16 @@ class OrderStorage {
         //TODO: Load the order from file at path and return
         let fileUrl = URL(fileURLWithPath: path)
         let text = try! String(contentsOf: fileUrl, encoding: .utf8)
-//        print(text)
+        print("\nRead Function Input From File\n",text,"\n\n")
         
         let deco = JSONDecoder()
         let da = text.data(using: .utf8)
         let newOrder = try! deco.decode(Order.self, from: da!)
-//        print("\n\n",newOrder,"\n\n")
+        
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        let str = try! encoder.encode(newOrder)
+        print("\nRead Function After Decoding: \n", String(bytes: str, encoding: .utf8) ?? "", "\n")
         
         return Order(items: [])
     }

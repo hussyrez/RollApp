@@ -56,13 +56,13 @@ struct MenuItem
     var additions: [MenuAddition]
     var removals: [MenuAddition]
     
-    init(name: String, type: String, price: Double, additions: [MenuAddition]) { // default struct initializer
+    init(name: String, type: String, price: Double, additions: [MenuAddition], removals:[MenuAddition]) { // default struct initializer
         self.name = name
         self.type = type
         self.price = price
         
         self.additions = additions
-        self.removals = []
+        self.removals = removals
     }
     
 }
@@ -103,34 +103,13 @@ struct MenuAddition {
         self.name = name
         self.price = price
     }
+    
 }
 
 extension MenuAddition: Equatable {
 
     static func ==(lhs: MenuAddition, rhs: MenuAddition) -> Bool {
         return lhs.name == rhs.name && lhs.price == rhs.price
-    }
-}
-
-extension MenuAddition: Codable{
-    enum Keys: String, CodingKey {
-        case name = "name"
-        case price = "price"
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: Keys.self)
-        let name: String = try container.decode(String.self, forKey: .name)
-        let price: Double = try container.decode(Double.self, forKey: .price)
-        
-        self.init(name: name, price: price)
-    }
-    
-    //encode to json object
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: Keys.self)
-        try container.encode(name, forKey: .name)
-        try container.encode(price, forKey: .price)
     }
 }
 
@@ -182,11 +161,13 @@ extension Order: Codable {
 }
 
 extension MenuItem: Codable {
-    enum Keys: String, CodingKey { // declaring our keys if different from API
+    //keys if different from API
+    enum Keys: String, CodingKey {
         case name = "name"
         case type = "type"
         case price = "price"
         case additions = "additions"
+        case removals = "removals"
     }
 
     //if unable to handle automatic decoding
@@ -195,9 +176,11 @@ extension MenuItem: Codable {
         let name: String = try container.decode(String.self, forKey: .name) // extracting the data
         let type: String = try container.decode(String.self, forKey: .type)
         let price: Double = try container.decode(Double.self, forKey: .price)
-        let additions: [MenuAddition] = try container.decode([MenuAddition].self, forKey: .additions)
+        let additions: [MenuAddition] = (try container.decodeIfPresent([MenuAddition].self, forKey: .additions)) ?? []
+        let removals: [MenuAddition] = (try container.decodeIfPresent([MenuAddition].self, forKey: .removals)) ?? []
 
-        self.init(name: name, type: type, price: price, additions: additions) // initializing our struct
+        // initializing our struct
+        self.init(name: name, type: type, price: price, additions: additions, removals: removals)
     }
     
     //encode to json object
@@ -205,6 +188,31 @@ extension MenuItem: Codable {
         var container = encoder.container(keyedBy: Keys.self)
         try container.encode(name, forKey: .name)
         try container.encode(type, forKey: .type)
+        try container.encode(price, forKey: .price)
+        try container.encode(additions, forKey: .additions)
+        try container.encode(removals, forKey: .removals)
+    }
+}
+
+//TESTED
+extension MenuAddition: Codable{
+    enum Keys: String, CodingKey {
+        case name = "name"
+        case price = "price"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: Keys.self)
+        let name: String = try container.decode(String.self, forKey: .name)
+        let price: Double = try container.decode(Double.self, forKey: .price)
+        
+        self.init(name: name, price: price)
+    }
+    
+    //encode to json object
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: Keys.self)
+        try container.encode(name, forKey: .name)
         try container.encode(price, forKey: .price)
     }
 }
