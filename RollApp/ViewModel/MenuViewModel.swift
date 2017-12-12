@@ -44,30 +44,23 @@ class MenuViewModel: NSObject {
         var item = menu[indexPath.row]
         
         if(counter % 2 == 0) {
-            let m = MenuAddition(name: "new", price: 3.5)
-            let n = MenuAddition(name: "removal new", price: Double(counter))
+            let m = MenuAddition(name: "acc. addition", price: item.price)
+            let n = MenuAddition(name: "acc. removal", price: item.price)
             item.additions.append(m)
             item.removals.append(n)
         }
         else{
-            let m = MenuAddition(name: "old", price: 2.5)
-            let n = MenuAddition(name: "removal new", price: Double(counter))
+            let m = MenuAddition(name: "new addition", price: 2.5)
+            let n = MenuAddition(name: "new removal", price: Double(counter))
             item.additions.append(m)
             item.removals.append(n)
         }
         
         counter += 1
         let updatedOrder = currentOrder.orderByAddingItem(item)
-//        for i in updatedOrder.items{
-//            print("\n\n",i,"\n\n")
-//        }
         
         OrderStorage.shared.currentOrder = updatedOrder
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        let str = try! encoder.encode(updatedOrder)
-//        print(String(bytes: str, encoding: .utf8) ?? "")
-//        print("\n\n",updatedOrder,"\n\n")
+
         OrderStorage()
     }
 
