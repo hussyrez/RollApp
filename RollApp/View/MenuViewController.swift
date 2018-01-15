@@ -12,7 +12,6 @@ import Firebase
 
 class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataSource, UITableViewDelegate
 {
-    
     private let viewModel: MenuViewModel
 //    private let bagViewController: BagViewController
     
@@ -28,7 +27,8 @@ class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.barTintColor = UIColor.orange
+        navigationController?.navigationBar.isTranslucent = false
         title = viewModel.title
         
         let menuTable = UITableView()
@@ -62,10 +62,9 @@ class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as? MenuCell {
-//            cell.item = viewModel
-            cell.itemName.text = viewModel.nameForMenuItem(at: indexPath)
-            cell.backgroundColor = UIColor.brown
-
+            cell.item = viewModel.itemFromMenu(at: indexPath)
+            cell.backgroundColor = UIColor(rgb:0x775d4a)
+            cell.parentController = self
             return cell
         }
         
@@ -78,15 +77,16 @@ class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataS
     
     private func reloadCellAtRow(row: Int) {
         let indexPath = NSIndexPath(row: row, section: 0)
-
     }
 
 }
 
 class MenuCell: UITableViewCell {
+    private var menuItem: MenuItem?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.selectionStyle = UITableViewCellSelectionStyle.none
         setupCell()
     }
     
@@ -96,10 +96,12 @@ class MenuCell: UITableViewCell {
     
     var item: MenuItem {
         get {
-            return self.item
+            return menuItem!
         }
         set {
-            self.item = newValue
+            menuItem = newValue
+            itemName.text = newValue.name
+            itemPrice.text = "$"+String(newValue.price)
         }
     }
 
@@ -112,20 +114,28 @@ class MenuCell: UITableViewCell {
         label.layer.borderColor = UIColor.black.cgColor
         label.layer.borderWidth = 1
         label.layer.backgroundColor = UIColor.white.cgColor
+        label.layer.cornerRadius = 5
         label.text = "0"
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
         return label
     }()
     
     let addButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("+", for: .normal)
-        button.backgroundColor = .red
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = UIColor(rgb: 0xed500e)
         button.layer.cornerRadius = 5
         return button
     }()
     
     let itemName: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    let itemPrice: UILabel = {
         let label = UILabel()
         return label
     }()
@@ -136,12 +146,38 @@ class MenuCell: UITableViewCell {
         return imageView
     }()
     
+    let customizeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Customize"
+        label.textColor = UIColor.blue
+        
+        label.isUserInteractionEnabled = true
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(customizeButtonAction))
+//        label.addGestureRecognizer(tap)
+        
+        return label
+    }()
+    
+    var parentController: MenuViewController?
+    
+    @objc func customizeButtonAction(sender:UITapGestureRecognizer) {
+        //Transition to a new state, controller.
+        print("customize label clicked . . . ")
+        let customizeController = CustomizeViewController(menuItem: self.menuItem!)
+        parentController?.navigationController?.pushViewController(customizeController, animated: true)
+        
+    }
+    
     func setupCell() {
         contentView.addSubview(numberOfItems)
         contentView.addSubview(addButton)
         contentView.addSubview(itemImage)
         contentView.addSubview(itemName)
+        contentView.addSubview(itemPrice)
+        contentView.addSubview(customizeLabel)
         addButton.addTarget(self, action: #selector(onPress), for: .touchUpInside)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(customizeButtonAction))
+        customizeLabel.addGestureRecognizer(tap)
 
         itemImage.snp.makeConstraints {
             make in
@@ -157,6 +193,12 @@ class MenuCell: UITableViewCell {
             
             make.top.equalTo(itemImage.snp.bottom).offset(12)
             make.left.equalTo(itemImage)
+        }
+        
+        itemPrice.snp.makeConstraints {
+            make in
+//            make.top.equalTo(numberOfItems.snp.bottom).offset(12)
+            make.left.equalTo(numberOfItems.snp.left)
             make.bottom.equalToSuperview().inset(12)
         }
         
@@ -166,12 +208,20 @@ class MenuCell: UITableViewCell {
             make.width.height.equalTo(44)
         }
         
-        numberOfItems.snp.makeConstraints{
+        numberOfItems.snp.makeConstraints {
             make in
             make.width.height.equalTo(addButton)
             make.right.equalTo(addButton.snp.left).offset(-12)
             make.top.equalTo(addButton)
         }
+        
+        customizeLabel.snp.makeConstraints {
+            make in
+            make.left.equalTo(itemImage.snp.left)
+            make.top.equalTo(itemName.snp.bottom).offset(12)
+            make.bottom.equalToSuperview().inset(12)
+        }
     }
     
 }
+

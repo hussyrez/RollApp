@@ -22,10 +22,10 @@ class MenuViewModel: NSObject {
     
     let title = "Menu"
     
-    func nameForMenuItem(at indexPath: IndexPath) -> String {
+    func itemFromMenu(at indexPath: IndexPath) -> MenuItem {
         
         let item = menu[indexPath.row]
-        return item.name
+        return menu[indexPath.row]
     }
     
     func viewAppeared() {
@@ -38,6 +38,7 @@ class MenuViewModel: NSObject {
             self?.updateMenuFromRemoteConfig()
         }
     }
+    
     var counter: Int = 0
     func selectedItemAtIndex(_ indexPath: IndexPath) {
         let currentOrder = OrderStorage.shared.currentOrder
@@ -73,7 +74,7 @@ class MenuViewModel: NSObject {
         do {
             //list of json objects
             let menuItems = try JSONDecoder().decode([MenuItem].self, from: data) // Decoding our data
-//            print(menuItems)
+            print(menuItems)
 //            let encoder = JSONEncoder();
 //            encoder.outputFormatting = .prettyPrinted
 //            let menuItems2 = try! encoder.encode(menuItems)

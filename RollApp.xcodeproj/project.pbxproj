@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5518BC49642CEC445173D810 /* Pods_RollApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24769E133F0DFF04F9DD7809 /* Pods_RollApp.framework */; };
+		EA35A8192002F79000D7862A /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA35A8182002F79000D7862A /* UIColorExtension.swift */; };
 		EA7CA3A51FCBBDEB00364DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CA3A41FCBBDEB00364DFC /* AppDelegate.swift */; };
 		EA7CA3AC1FCBBDEB00364DFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA7CA3AB1FCBBDEB00364DFC /* Assets.xcassets */; };
+		EAAE0FBB1FDF691A00214598 /* CustomizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAE0FBA1FDF691A00214598 /* CustomizeViewController.swift */; };
 		EAC1FDC71FCBE3460035F674 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1FDC61FCBE3460035F674 /* AppState.swift */; };
 		EAC1FDC91FCBE35E0035F674 /* RollAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1FDC81FCBE35E0035F674 /* RollAppState.swift */; };
 		EAC1FDCB1FCBE4C50035F674 /* StatefulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1FDCA1FCBE4C50035F674 /* StatefulView.swift */; };
@@ -31,12 +33,14 @@
 		45FD7876D372138D470A0E61 /* Pods_RollAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RollAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F3121F230DE96493B4EC7A1 /* Pods-RollApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RollApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RollApp/Pods-RollApp.release.xcconfig"; sourceTree = "<group>"; };
 		D4AC4F795DE3BD9663EE96F6 /* Pods-RollAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RollAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RollAppTests/Pods-RollAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		EA35A8182002F79000D7862A /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		EA7CA3A11FCBBDEB00364DFC /* RollApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RollApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA7CA3A41FCBBDEB00364DFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA7CA3AB1FCBBDEB00364DFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA7CA3B01FCBBDEB00364DFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA7CA3B91FCBBDEB00364DFC /* RollAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollAppTests.swift; sourceTree = "<group>"; };
 		EA7CA3BB1FCBBDEB00364DFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAAE0FBA1FDF691A00214598 /* CustomizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeViewController.swift; sourceTree = "<group>"; };
 		EAC1FDC61FCBE3460035F674 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		EAC1FDC81FCBE35E0035F674 /* RollAppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollAppState.swift; sourceTree = "<group>"; };
 		EAC1FDCA1FCBE4C50035F674 /* StatefulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulView.swift; sourceTree = "<group>"; };
@@ -48,6 +52,7 @@
 		EAC1FDE01FCF97820035F674 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EAC1FDEE1FD4FF440035F674 /* RemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RemoteConfig.swift; path = RollApp/Data/RemoteConfig.swift; sourceTree = SOURCE_ROOT; };
 		EAC1FDF01FD507FF0035F674 /* OrderStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderStorage.swift; path = RollApp/Data/OrderStorage.swift; sourceTree = SOURCE_ROOT; };
+		EAD8C13C20071F6D007B1111 /* CheckMarkHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckMarkHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +119,8 @@
 				EA7CA3AB1FCBBDEB00364DFC /* Assets.xcassets */,
 				EA7CA3B01FCBBDEB00364DFC /* Info.plist */,
 				EAC1FDE01FCF97820035F674 /* GoogleService-Info.plist */,
+				EA35A8182002F79000D7862A /* UIColorExtension.swift */,
+				EAD8C13C20071F6D007B1111 /* CheckMarkHeader.h */,
 			);
 			path = RollApp;
 			sourceTree = "<group>";
@@ -159,6 +166,7 @@
 			children = (
 				EAC1FDD41FCD1EF30035F674 /* MenuViewController.swift */,
 				EAC1FDD61FCD1F040035F674 /* BagViewController.swift */,
+				EAAE0FBA1FDF691A00214598 /* CustomizeViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,6 +259,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RollApp/Pods-RollApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -260,6 +269,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -313,9 +323,11 @@
 			files = (
 				EAC1FDC91FCBE35E0035F674 /* RollAppState.swift in Sources */,
 				EAC1FDEF1FD4FF440035F674 /* RemoteConfig.swift in Sources */,
+				EAAE0FBB1FDF691A00214598 /* CustomizeViewController.swift in Sources */,
 				EAC1FDC71FCBE3460035F674 /* AppState.swift in Sources */,
 				EAC1FDCB1FCBE4C50035F674 /* StatefulView.swift in Sources */,
 				EAC1FDDF1FCE62480035F674 /* BagViewModel.swift in Sources */,
+				EA35A8192002F79000D7862A /* UIColorExtension.swift in Sources */,
 				EAC1FDDD1FCD37130035F674 /* MenuViewModel.swift in Sources */,
 				EAC1FDF11FD507FF0035F674 /* OrderStorage.swift in Sources */,
 				EAC1FDDB1FCD31B30035F674 /* RollModel.swift in Sources */,
@@ -381,7 +393,9 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = RollApp/CheckMarkHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/\"/**";
 			};
 			name = Debug;
 		};
@@ -430,7 +444,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = RollApp/CheckMarkHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/\"/**";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

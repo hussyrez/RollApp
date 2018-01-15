@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        
         window?.rootViewController = RollAppState.initialApplicationState().viewController()
         
         window?.makeKeyAndVisible()

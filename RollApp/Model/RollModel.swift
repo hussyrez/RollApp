@@ -95,9 +95,13 @@ extension MenuItem: Equatable {
     }
 }
 
-struct MenuAddition {
+struct MenuAddition: Hashable {
     let name: String
     let price: Double
+    
+    var hashValue: Int {
+        return self.name.hashValue ^ self.price.hashValue
+    }
     
     init(name: String, price: Double){
         self.name = name

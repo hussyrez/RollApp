@@ -11,5 +11,5 @@ target 'RollApp' do
   pod 'Alamofire'
   pod 'Firebase/Core'
   pod 'Firebase/RemoteConfig'
-
+  pod 'BEMCheckBox'
 end

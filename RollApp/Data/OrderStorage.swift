@@ -42,20 +42,29 @@ class OrderStorage {
     
     private class func readOrder(_ path: String) -> Order {
         //TODO: Load the order from file at path and return
+        let fileManager = FileManager.default
         let fileUrl = URL(fileURLWithPath: path)
-        let text = try! String(contentsOf: fileUrl, encoding: .utf8)
-        print("\nRead Function Input From File\n",text,"\n\n")
         
-        let deco = JSONDecoder()
-        let da = text.data(using: .utf8)
-        let newOrder = try! deco.decode(Order.self, from: da!)
+        if fileManager.fileExists(atPath: path) {
+            let text = try! String(contentsOf: fileUrl, encoding: .utf8)
+            print("\nRead Function Input From File\n",text,"\n\n")
+            
+            let deco = JSONDecoder()
+            let da = text.data(using: .utf8)
+            let newOrder = try! deco.decode(Order.self, from: da!)
+            
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            let str = try! encoder.encode(newOrder)
+            print("\nRead Function After Decoding: \n", String(bytes: str, encoding: .utf8) ?? "", "\n")
+            
+            return Order(items: [])
+        }
+        else {
+            return Order(items: [])
+        }
         
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        let str = try! encoder.encode(newOrder)
-        print("\nRead Function After Decoding: \n", String(bytes: str, encoding: .utf8) ?? "", "\n")
-        
-        return Order(items: [])
+
     }
  
     private static var defaultOrderLocation: String {
