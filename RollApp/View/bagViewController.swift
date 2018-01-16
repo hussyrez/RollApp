@@ -29,7 +29,7 @@ class BagViewController: StatefulViewController<RollAppState>
     override func viewDidLoad()
     {
         super.viewDidLoad()
-                
+        
         let titleView = UILabel()
         titleView.text = "Bag"    
     }
