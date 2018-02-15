@@ -10,10 +10,12 @@ import UIKit
 import SnapKit
 import Firebase
 
-class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataSource, UITableViewDelegate
+class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataSource, UITableViewDelegate, CustomizeDelegate 
 {
     private let viewModel: MenuViewModel
 //    private let bagViewController: BagViewController
+    
+    private let menuTable = UITableView()
     
     init(state: State, viewModel: MenuViewModel) {
         self.viewModel = viewModel
@@ -25,13 +27,25 @@ class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataS
         fatalError("init(coder:) has not been implemented")
     }
     
+    // call this function and it should update this menu item OR CAN USE CLOSURES AS CALLBACK
+    func didUpdateCustomize(item: MenuItem) {
+        print("did update customize called")
+
+        
+        
+        //once you update menuitem
+        //reset menuitem
+        
+
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor.orange
         navigationController?.navigationBar.isTranslucent = false
         title = viewModel.title
-        
-        let menuTable = UITableView()
+    
         view.addSubview(menuTable)
         menuTable.snp.makeConstraints {
             make in
@@ -44,7 +58,8 @@ class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataS
         menuTable.register(MenuCell.self, forCellReuseIdentifier: "MenuCell")
         
         viewModel.didLoadMenu = {
-            menuTable.reloadData()
+            [weak self] in
+            self?.menuTable.reloadData()
         }
     }
     
@@ -61,10 +76,19 @@ class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as? MenuCell {
             cell.item = viewModel.itemFromMenu(at: indexPath)
             cell.backgroundColor = UIColor(rgb:0x775d4a)
             cell.parentController = self
+            
+            cell.customiseButtonPressed = {
+                [weak self] menuItem in
+                let customizeController = CustomizeViewController(menuItem: menuItem)
+                customizeController.delegate = self
+                self?.navigationController?.pushViewController(customizeController, animated: true)
+            }
+            
             return cell
         }
         
@@ -82,6 +106,10 @@ class MenuViewController: StatefulViewController<RollAppState>, UITableViewDataS
 }
 
 class MenuCell: UITableViewCell {
+    
+    //closure
+    var customiseButtonPressed: (MenuItem)->() = { _ in }
+    
     private var menuItem: MenuItem?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -162,9 +190,11 @@ class MenuCell: UITableViewCell {
     
     @objc func customizeButtonAction(sender:UITapGestureRecognizer) {
         //Transition to a new state, controller.
+        customiseButtonPressed(menuItem!)
         print("customize label clicked . . . ")
-        let customizeController = CustomizeViewController(menuItem: self.menuItem!)
-        parentController?.navigationController?.pushViewController(customizeController, animated: true)
+//        let customizeController = CustomizeViewController(menuItem: self.menuItem!)
+//        customizeController.delegate = self
+//        parentController?.navigationController?.pushViewController(customizeController, animated: true)
         
     }
     

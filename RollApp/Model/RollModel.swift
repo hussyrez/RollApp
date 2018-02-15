@@ -98,6 +98,8 @@ extension MenuItem: Equatable {
 struct MenuAddition: Hashable {
     let name: String
     let price: Double
+//    let optional: Bool
+//    let quantity: Int
     
     var hashValue: Int {
         return self.name.hashValue ^ self.price.hashValue
@@ -106,6 +108,8 @@ struct MenuAddition: Hashable {
     init(name: String, price: Double){
         self.name = name
         self.price = price
+//        self.optional = optional
+//        self.quantity = quantity
     }
     
 }
@@ -220,4 +224,16 @@ extension MenuAddition: Codable{
         try container.encode(price, forKey: .price)
     }
 }
+
+//struct Ingredient {
+//    let name: String
+//    let extra: Bool
+//    let price: Double
+//
+//    init(name: String, extra: Bool, price: Double) {
+//        self.name = name
+//        self.extra = extra
+//        self.price = price
+//    }
+//}
 

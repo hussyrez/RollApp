@@ -52,6 +52,8 @@ class StatefulTabController<T : AppState>: UITabBarController, StatefulView
         _state = state
         
         super.init(nibName: nil, bundle: nil)
+        self.tabBar.barTintColor = UIColor.orange
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

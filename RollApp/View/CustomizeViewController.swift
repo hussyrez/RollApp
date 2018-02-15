@@ -10,20 +10,29 @@ import Foundation
 import UIKit
 import SnapKit
 
+protocol CustomizeDelegate {
+    func didUpdateCustomize(item: MenuItem)
+}
+
 class CustomizeViewController: UIViewController {
-    private var menuItem: MenuItem?
+    public var delegate: CustomizeDelegate?
+    private var menuItem: MenuItem
     private var ingredients: Array<IngredientView> = []
     let stackView = UIStackView()
     let itemName: UILabel = {
         let label = UILabel()
         return label
     }()
+
     
     init(menuItem: MenuItem) {
-        super.init(nibName: nil, bundle: nil)
         self.menuItem = menuItem
+        super.init(nibName: nil, bundle: nil)
         
         setAndDisplay()
+        stackView.axis = UILayoutConstraintAxis.vertical
+        stackView.distribution = UIStackViewDistribution.equalSpacing
+        stackView.spacing = 30
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -31,10 +40,22 @@ class CustomizeViewController: UIViewController {
     }
     
     func setAndDisplay() {
-        itemName.text = menuItem?.name
+        itemName.text = menuItem.name
 
-        for i in (menuItem?.additions)! {
-            let temp = IngredientView(menuAddition: i)
+        for (index, element) in menuItem.additions.enumerated() {
+            let temp = IngredientView(menuAddition: element)
+            temp.checkboxValueChanged = {
+                [weak self] isOn in
+                
+                //if already on dont do anything otherwse add to additions
+                if isOn {
+                    self?.menuItem.additions.append(element)
+                } else {
+                    self?.menuItem.removals.append(element)
+                }
+               
+                
+            }
             ingredients.append(temp)
             
         }
@@ -55,27 +76,41 @@ class CustomizeViewController: UIViewController {
             
             make.top.left.equalToSuperview().inset(12)
         }
-        
-        for i in ingredients {
-            stackView.addArrangedSubview(i)
-        }
 
         stackView.snp.makeConstraints {
             make in
             make.top.equalTo(itemName.snp.bottom)
             make.left.right.equalToSuperview().inset(12)
         }
+        for i in ingredients {
+            stackView.addArrangedSubview(i)
+        }
         
+    }
+    
+    //sends the menuitem of this customized view to MenuViewController for updated values
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        delegate?.didUpdateCustomize(item: menuItem)
     }
     
 }
 
 
 class IngredientView :  UIView {
+    
+    var checkboxValueChanged: (Bool)->() = { _ in }
+    
     private var ingredient : MenuAddition?
     private var checkBoxStatus : Bool?
-    private var checkBox = BEMCheckBox(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+    private var checkBox = BEMCheckBox(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
     let name : UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    let price : UILabel = {
         let label = UILabel()
         return label
     }()
@@ -85,15 +120,20 @@ class IngredientView :  UIView {
         
         self.ingredient = menuAddition
         self.name.text = ingredient?.name
-        checkBoxStatus = checkBox.on
+        self.price.text = String(format:"%0.2f", (ingredient?.price)!)
+        
+        
+        checkBox.setOn(true, animated: true)
         checkBox.onFillColor = UIColor(rgb: 0x6cf762)
         checkBox.onTintColor = UIColor(rgb: 0x6cf762)
         checkBox.onCheckColor = UIColor.white
-        checkBox.onAnimationType = BEMAnimationType.fill
+//        checkBox.onAnimationType = BEMAnimationType.fill
 
-        addSubview((checkBox as UIView))
+        addSubview(checkBox)
         addSubview(name)
+        addSubview(price)
         
+        checkBox.addTarget(self, action: #selector(checkboxPressed(_:)), for: .valueChanged)
         checkBox.snp.makeConstraints {
             make in
             make.left.equalToSuperview()
@@ -106,6 +146,16 @@ class IngredientView :  UIView {
             make.left.equalTo(checkBox.snp.right).offset(12)
             make.centerY.right.equalToSuperview()
         }
+        
+        price.snp.makeConstraints{
+            make in
+            make.right.equalToSuperview().offset(12)
+            make.centerY.right.equalToSuperview()
+        }
+    }
+    
+    @objc private func checkboxPressed(_ sender: BEMCheckBox) {
+        checkboxValueChanged(sender.on)
     }
     
     required init?(coder aDecoder: NSCoder) {

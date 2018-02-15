@@ -29,7 +29,8 @@ class BagViewController: StatefulViewController<RollAppState>
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.barTintColor = UIColor.orange
+        navigationController?.navigationBar.isTranslucent = false
         let titleView = UILabel()
         titleView.text = "Bag"    
     }
